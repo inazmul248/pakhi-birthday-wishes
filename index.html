@@ -1,178 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Birthday, Pakhi</title>
-    <meta
-      name="description"
-      content="A heartfelt birthday website for Pakhi, written with love by Nazmul."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <div class="bg-glow glow-1"></div>
-      <div class="bg-glow glow-2"></div>
-      <div class="bg-glow glow-3"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Pakhi 💜🐦🌸</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      <div class="floating-hearts" aria-hidden="true"></div>
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a0033 0%, #2d0052 50%, #1a0033 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
 
-      <header class="hero reveal">
-        <nav class="top-badge">For the girl who made my world softer</nav>
-        <div class="hero-content">
-          <p class="eyebrow">To Pakhi</p>
-          <h1>Happy Birthday, <span>Pakhi</span> 💜</h1>
-          <p class="subtitle">
-            A little celebration for the most beautiful soul in my life — the one who
-            turned my broken days into gentle mornings.
-          </p>
-          <div class="cta-row">
-            <a href="#letter" class="primary-btn">Open my letter</a>
-            <span class="tiny-note">From Nazmul / Nazu</span>
-          </div>
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background elements */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 200, 255, 0.8), rgba(200, 100, 255, 0.3));
+            box-shadow: 0 0 30px rgba(255, 100, 200, 0.6);
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px) scale(1); opacity: 1; }
+            50% { transform: translateY(-50px) translateX(20px) scale(1.1); opacity: 0.8; }
+            100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.5; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 100, 200, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(255, 100, 200, 0.8); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .bird-emoji {
+            font-size: 6rem;
+            animation: pulse 2s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInLeft 1s ease-out;
+            text-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #e0b0ff;
+            margin-bottom: 30px;
+            animation: slideInRight 1s ease-out;
+            font-style: italic;
+        }
+
+        .love-letter {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 105, 180, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(255, 100, 200, 0.2);
+            animation: glow 3s ease-in-out infinite;
+            text-align: left;
+            line-height: 2;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .love-letter p {
+            margin: 15px 0;
+            font-size: 1.1rem;
+            color: #f0f0f0;
+        }
+
+        .love-letter strong {
+            color: #ff69b4;
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #ff69b4;
+            margin: 40px 0 20px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .quality-box {
+            background: rgba(255, 105, 180, 0.2);
+            border-left: 4px solid #ff69b4;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .quality-box .emoji {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .quality-box h3 {
+            color: #ffb6d9;
+            margin-bottom: 10px;
+        }
+
+        .quality-box p {
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+
+        .final-message {
+            font-size: 1.5rem;
+            color: #ffb6d9;
+            margin-top: 40px;
+            font-weight: bold;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .signature {
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-top: 30px;
+            animation: fadeInUp 2.5s ease-out;
+            font-style: italic;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 20px 10px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            animation: fadeInUp 3s ease-out;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(255, 105, 180, 0.6);
+        }
+
+        /* Confetti animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff69b4;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .confetti {
+            animation: confetti-fall 3s ease-out forwards;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1rem; }
+            .love-letter { padding: 20px; }
+            .section-title { font-size: 1.8rem; }
+            .bird-emoji { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <div class="container">
+        <div class="content">
+            <div class="bird-emoji">🐦</div>
+            <h1>Happy Birthday, Pakhi! 💜</h1>
+            <p class="subtitle">From Nazmul (Nazu) with all my love ❤️</p>
+
+            <div class="love-letter">
+                <p><strong>🌸 To my beautiful Pakhi,</strong></p>
+                
+                <p>On your special day, I want to tell you all the things you mean to me. You are not just beautiful—you are extraordinary.</p>
+
+                <p><strong>Your face:</strong> The softness in your face makes me forget everything else. Just looking at you feels like peace.</p>
+
+                <p><strong>Your smile:</strong> So adorable, so pure, so precious. When you smile, my whole world becomes brighter.</p>
+
+                <p><strong>Your eyes:</strong> I get lost in them every single time. There's so much warmth and kindness in your eyes—it's mesmerizing.</p>
+
+                <p><strong>Your presence:</strong> Even your smell is addictive in the most beautiful way. It feels like home.</p>
+
+                <p><strong>Your voice:</strong> The way you talk is so gentle, so decent, so soothing. I could listen to you forever.</p>
+
+                <p><strong>Your behavior:</strong> You are kind-hearted, caring, and thoughtful. Everything you do shows how much you care.</p>
+
+                <p><strong>What you mean to me:</strong> You take care of me like my mother. You're always tense and worried about me, always doing everything for my happiness. That means more than you know.</p>
+
+                <p><strong>Your strength:</strong> You carry so many problems in your life, but instead of breaking, you lift me up. You pulled me out of my darkest days, from my biggest downfall, from my mental struggles. You made me feel alive again. You made me a better man.</p>
+
+                <p><strong>Your effort:</strong> Every single day, you try harder to make me happy. You never give up on me, even when things are hard.</p>
+
+                <p><strong>Your talent:</strong> Your cooking is absolutely mind-blowing! But more than that, everything you touch becomes beautiful.</p>
+
+                <p><em>You recovered me from my past. You healed my broken heart. You gave me hope when I had none.</em></p>
+
+                <p><strong style="font-size: 1.4rem; color: #ffb6d9;">Happy Birthday to the girl who made my world softer, brighter, and more beautiful. 💜🐦🌸</strong></p>
+
+                <p style="color: #ffd700; font-size: 1.3rem; margin-top: 30px;">With all my love and forever gratitude,</p>
+                <p style="color: #ffd700; font-size: 1.5rem; font-weight: bold;">Nazmul (Nazu) ❤️</p>
+            </div>
+
+            <div class="final-message">
+                🎉 You are my favorite miracle 🎉
+            </div>
+
+            <button class="button" onclick="createConfetti()">Celebrate! 🎊</button>
         </div>
-
-        <div class="portrait-card">
-          <div class="portrait-orbit orbit-one"></div>
-          <div class="portrait-orbit orbit-two"></div>
-          <div class="portrait-frame">
-            <div class="frame-glow"></div>
-            <div class="inner-petal petal-1"></div>
-            <div class="inner-petal petal-2"></div>
-            <div class="inner-petal petal-3"></div>
-            <div class="emoji-girl">🐦</div>
-          </div>
-        </div>
-      </header>
-
-      <main>
-        <section class="intro reveal" id="letter">
-          <p class="mini-label">My heart says this</p>
-          <h2>Pakhi, you are not just beautiful...</h2>
-          <p>
-            You are a calm in my storm, a warmth in my coldest nights, and a reason I
-            believe life can still feel beautiful again. The softness of your face, the
-            sweetness of your smile, the gentleness in your eyes — all of it feels like a
-            dream I never want to wake up from.
-          </p>
-        </section>
-
-        <section class="features reveal">
-          <div class="feature-card">
-            <span>💫</span>
-            <h3>Your smile</h3>
-            <p>
-              Your smile is so adorable, so pure, so comforting that it makes my whole
-              world stop for a second and breathe.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <span>👀</span>
-            <h3>Your eyes</h3>
-            <p>
-              Every time I look into your eyes, I lose myself a little more. There is a
-              softness there that feels like peace and love combined.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <span>🌸</span>
-            <h3>Your presence</h3>
-            <p>
-              Even your smell feels like an addiction in the sweetest way — calm, warm,
-              comforting, and impossible to forget.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <span>🎶</span>
-            <h3>Your voice</h3>
-            <p>
-              The way you talk is so gentle, so graceful, so soothing — even your silence
-              feels kind and reassuring.
-            </p>
-          </div>
-        </section>
-
-        <section class="poem reveal">
-          <div class="section-heading">
-            <p class="mini-label">For my Pakhi</p>
-            <h2>The way you love me</h2>
-          </div>
-
-          <div class="poem-card">
-            <p>
-              Your behavior is so kind, so beautiful, so full of care,<br />
-              and every little thing you do feels like a blessing in the air.<br />
-              You carry your own pain, your own problems, your own storms,<br />
-              yet you still stand beside me, helping me heal from all my wounds.<br /><br />
-
-              You have pulled me out of my darkest downfall,<br />
-              from the mental shadows I once feared would never fade.<br />
-              You made me feel alive again, like a better man,<br />
-              like someone who deserves softness, love, and a second chance.<br /><br />
-
-              And in all of this, you never stopped caring for me,<br />
-              always trying harder every single day to make me happy.<br />
-              That is the kind of heart you have — rare, pure, and deeply strong.<br />
-            </p>
-          </div>
-        </section>
-
-        <section class="story reveal">
-          <div class="story-column">
-            <p class="mini-label">Something true</p>
-            <h2>You are my peace, my home, my healing.</h2>
-            <p>
-              Pakhi, you are multi-talented, and your cooking is just mind-blowing — but
-              even beyond that, what makes you unforgettable is the way you love. You are
-              strong when life is hard, warm when life is cold, and gentle when I need to be
-              saved from my own thoughts.
-            </p>
-          </div>
-
-          <div class="story-boxes">
-            <div class="small-box">
-              <span>🫶</span>
-              <p>Take care of me like my mother</p>
-            </div>
-            <div class="small-box">
-              <span>💖</span>
-              <p>Make my heart feel safe again</p>
-            </div>
-            <div class="small-box">
-              <span>🌙</span>
-              <p>Turn my dark days into gentle mornings</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="final-message reveal">
-          <p class="mini-label">To my forever girl</p>
-          <h2>Happy Birthday, Pakhi. You are my favorite miracle.</h2>
-          <p>
-            I know your life has had many struggles, but still you carry so much love and
-            grace. You are beautiful in every way — in your heart, in your soul, in your
-            strength, and in the way you never stop trying to make people feel safe and loved.
-          </p>
-          <p>
-            Today, I just want you to know how proud I am of you. How lucky I feel to have
-            you in my life. How deeply I admire you. And how much I love you for being the
-            most wonderful person I have ever known.
-          </p>
-          <div class="signature">With all my love, <strong>Nazmul</strong> — <em>Nazu</em></div>
-        </section>
-      </main>
     </div>
 
-    <script src="script.js"></script>
-  </body>
+    <script>
+        // Create animated background bubbles
+        function createBubble() {
+            const bgAnimation = document.getElementById('bgAnimation');
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            
+            const size = Math.random() * 200 + 50;
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+            bubble.style.left = x + 'px';
+            bubble.style.top = y + 'px';
+            bubble.style.animation = `float ${Math.random() * 8 + 6}s ease-in-out infinite`;
+            
+            bgAnimation.appendChild(bubble);
+            
+            setTimeout(() => bubble.remove(), 10000);
+        }
+
+        // Create floating hearts
+        function createHeart() {
+            const container = document.querySelector('.container');
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💜';
+            
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = Math.random() * window.innerHeight + 'px';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            
+            container.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 8000);
+        }
+
+        // Create confetti on button click
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = '-10px';
+                    confetti.style.background = ['#ff69b4', '#ff1493', '#ffb6d9', '#ffd700', '#ff69b4'][Math.floor(Math.random() * 5)];
+                    
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // Initialize animations
+        setInterval(createBubble, 2000);
+        setInterval(createHeart, 1500);
+        
+        // Create initial bubbles
+        for (let i = 0; i < 5; i++) {
+            createBubble();
+        }
+    </script>
+</body>
 </html>
